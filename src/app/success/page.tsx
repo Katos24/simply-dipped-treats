@@ -5,7 +5,7 @@ export default function SuccessPage() {
         <div className="text-6xl mb-4">✅</div>
         <h1 className="text-4xl font-bold mb-4 text-[var(--primary)]">Order Confirmed!</h1>
         <p className="text-xl text-gray-600 mb-8">
-          Thank you for your order! We'll send you a confirmation email shortly with pickup details.
+          Thank you for your order! We&apos;ll send you a confirmation email shortly with pickup details.
         </p>
         <a 
           href="/treats" 

@@ -80,7 +80,7 @@ export default function SpanakopitaPage() {
           </div>
 
           <div className={styles.ingredientsCard}>
-            <h3>What's Inside</h3>
+            <h3>What&apos;s Inside</h3>
             <p>
               Fresh spinach, authentic Greek feta cheese, farm-fresh eggs, onions, dill, 
               and Mediterranean herbs wrapped in crispy layers of phyllo dough. 
