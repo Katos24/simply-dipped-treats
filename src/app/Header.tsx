@@ -24,7 +24,7 @@ export default function Header() {
             >
               Spanakopita
             </Link>
-            {/* Anchor is fine for in-page section */}
+            {/* Anchor is fine for in-page sectionn */}
             <a
               href="#contact"
               className="text-[var(--foreground)] hover:text-[var(--accent)] transition font-medium"
