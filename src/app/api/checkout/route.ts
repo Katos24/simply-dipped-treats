@@ -3,25 +3,31 @@ import Stripe from 'stripe';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
-
 export async function POST(req: NextRequest) {
   try {
     const { productName, price, quantity = 1, fulfillmentType } = await req.json();
 
-    const lineItems: any[] = [
+    if (!productName || !price) {
+      return NextResponse.json(
+        { error: 'Missing product name or price.' },
+        { status: 400 }
+      );
+    }
+
+    // Use Stripe's built-in type for line items
+    const lineItems: Stripe.Checkout.SessionCreateParams.LineItem[] = [
       {
         price_data: {
           currency: 'usd',
           product_data: {
             name: productName,
           },
-          unit_amount: price * 100,
+          unit_amount: Math.round(price * 100), // in cents
         },
         quantity,
       },
     ];
 
-    // Add delivery fee if delivery selected
     if (fulfillmentType === 'delivery') {
       lineItems.push({
         price_data: {
@@ -35,7 +41,8 @@ export async function POST(req: NextRequest) {
       });
     }
 
-    const sessionConfig: any = {
+    // Use Stripe's proper type for session creation
+    const sessionConfig: Stripe.Checkout.SessionCreateParams = {
       payment_method_types: ['card'],
       line_items: lineItems,
       mode: 'payment',
@@ -46,7 +53,6 @@ export async function POST(req: NextRequest) {
       },
     };
 
-    // Collect shipping address if delivery
     if (fulfillmentType === 'delivery') {
       sessionConfig.shipping_address_collection = {
         allowed_countries: ['US'],
