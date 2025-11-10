@@ -1,0 +1,182 @@
+.hero {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, #f0ede6 0%, #fff 100%);
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.heroSubtitle {
+  font-size: 1.25rem;
+  color: #6b7280;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.pricingSection {
+  padding: 4rem 0;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--primary);
+}
+
+.priceGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.priceCard {
+  border: 2px solid #e5e7eb;
+  border-radius: 1rem;
+  padding: 2.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.priceCard:hover {
+  border-color: var(--primary);
+  box-shadow: 0 8px 24px rgba(107, 68, 35, 0.15);
+  transform: translateY(-6px);
+}
+
+.popular {
+  border-color: var(--accent);
+  background: var(--muted);
+  position: relative;
+}
+
+.popularBadge {
+  background: var(--accent);
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 0.375rem 1rem;
+  border-radius: 2rem;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.cardTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.cardSubtitle {
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+.price {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 2rem;
+}
+
+.orderButton {
+  width: 100%;
+  padding: 1rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.orderButton:hover {
+  background: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(107, 68, 35, 0.3);
+}
+
+.taxNote {
+  text-align: center;
+  color: #6b7280;
+  margin-top: 2rem;
+  font-size: 1rem;
+}
+
+.infoSection {
+  padding: 5rem 0;
+  background: var(--muted);
+}
+
+.infoContainer {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.stepsList {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.step {
+  display: flex;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.stepIcon {
+  font-size: 2.5rem;
+  flex-shrink: 0;
+}
+
+.stepContent h3 {
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+}
+
+.stepContent p {
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+.ingredientsCard {
+  background: white;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+}
+
+.ingredientsCard h3 {
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.ingredientsCard p {
+  color: #6b7280;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.allergenInfo {
+  font-size: 0.875rem;
+  color: #9ca3af;
+  margin-top: 1rem;
+}

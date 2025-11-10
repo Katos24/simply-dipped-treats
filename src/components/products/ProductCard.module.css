@@ -1,0 +1,168 @@
+.card {
+  background: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.imageContainer {
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: var(--muted);
+}
+
+.imagePlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+  color: #64748b;
+  font-weight: 600;
+  border: 2px dashed #94a3b8;
+}
+
+.imagePath {
+  font-size: 0.75rem;
+  font-weight: 400;
+  font-family: monospace;
+  color: #94a3b8;
+}
+
+.content {
+  padding: 1.5rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.description {
+  color: #64748b;
+  font-size: 0.938rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.variants {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.variant {
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  transition: all 0.2s ease;
+}
+
+.variant:hover {
+  border-color: var(--accent);
+  background: var(--muted);
+}
+
+.variantInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.size {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.orderButton {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.orderButton:hover {
+  background: var(--accent);
+  transform: translateY(-1px);
+}
+
+.fulfillmentSelector {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: var(--muted);
+  border-radius: 0.5rem;
+}
+
+.fulfillmentLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--primary);
+}
+
+.fulfillmentLabel input[type="radio"] {
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+}
+
+.fulfillmentLabel span {
+  user-select: none;
+}
+
+.fulfillmentSelector {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: var(--muted);
+  border-radius: 0.5rem;
+}
+
+.fulfillmentLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--primary);
+}
+
+.fulfillmentLabel input[type="radio"] {
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+}
+
+.fulfillmentLabel span {
+  user-select: none;
+}
