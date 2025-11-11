@@ -24,7 +24,6 @@ export default function RiceKrispiesPage() {
 
       <section className={styles.productsSection}>
         <div className="container">
-          {/* Tabs */}
           <div className={styles.tabs}>
             <button
               onClick={() => setActiveTab('individual')}
@@ -40,11 +39,14 @@ export default function RiceKrispiesPage() {
             </button>
           </div>
 
-          {/* Products Grid */}
           <div className={styles.grid}>
             {displayProducts.length > 0 ? (
-              displayProducts.map(product => (
-                <ProductCard key={product.id} product={product} />
+              displayProducts.map((product, index) => (
+                <ProductCard 
+                  key={product.id} 
+                  product={product} 
+                  priority={index < 3}
+                />
               ))
             ) : (
               <p className={styles.emptyMessage}>No packs available yet. Check back soon!</p>

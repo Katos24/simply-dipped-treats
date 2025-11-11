@@ -40,10 +40,14 @@ export default function BrownieBitesPage() {
             </button>
           </div>
 
-          {/* Products Grid */}
+          {/* Products Grid - prioritize first 3 images */}
           <div className={styles.grid}>
-            {displayProducts.map(product => (
-              <ProductCard key={product.id} product={product} />
+            {displayProducts.map((product, index) => (
+              <ProductCard 
+                key={product.id} 
+                product={product} 
+                priority={index < 3}
+              />
             ))}
           </div>
         </div>

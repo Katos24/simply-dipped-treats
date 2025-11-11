@@ -74,3 +74,21 @@ html {
 [data-sonner-toast][data-type="success"] {
   background: var(--primary) !important;
 }
+
+/* Loading optimization */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Prevent layout shift */
+img {
+  height: auto;
+}
+
+/* Optimize font loading */
+@font-face {
+  font-family: system-ui;
+  font-display: swap;
+}

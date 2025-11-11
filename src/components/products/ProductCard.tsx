@@ -9,9 +9,10 @@ import styles from './ProductCard.module.css';
 
 interface ProductCardProps {
   product: Product;
+  priority?: boolean;
 }
 
-export default function ProductCard({ product }: ProductCardProps) {
+export default function ProductCard({ product, priority = false }: ProductCardProps) {
   const { addToCart } = useCart();
   const [selectedVariant, setSelectedVariant] = useState(0);
   const [isAdded, setIsAdded] = useState(false);
@@ -40,8 +41,11 @@ export default function ProductCard({ product }: ProductCardProps) {
             src={product.image}
             alt={product.name}
             fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             className={styles.productImage}
             onError={() => setImageError(true)}
+            priority={priority}
+            loading={priority ? 'eager' : 'lazy'}
           />
         ) : (
           <div className={styles.imagePlaceholder}>

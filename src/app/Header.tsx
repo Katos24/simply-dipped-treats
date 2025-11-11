@@ -1,25 +1,31 @@
 'use client';
 
 import { useCart } from '@/context/CartContext';
-import { useState } from 'react';
+import { useState, lazy, Suspense } from 'react';
 import Link from 'next/link';
-import CartDrawer from '@/components/CartDrawer';
 import styles from './Header.module.css';
+
+const CartDrawer = lazy(() => import('@/components/CartDrawer'));
 
 export default function Header() {
   const { cartCount } = useCart();
   const [cartOpen, setCartOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const closeMenu = () => setMenuOpen(false);
 
   return (
     <>
       <header className={styles.header}>
-        <div className="container mx-auto px-4 py-6">
+        <div className="container mx-auto px-4 py-4">
           <div className={styles.headerContent}>
-            <Link href="/" className={styles.logo}>
+            <Link href="/" className={styles.logo} onClick={closeMenu}>
               <span className={styles.logoIcon}>🍫</span>
               <span className={styles.logoText}>Simply Dipped</span>
             </Link>
-            <nav className={styles.nav}>
+
+            {/* Desktop Nav */}
+            <nav className={styles.desktopNav}>
               <Link href="/treats" className={styles.navLink}>Shop</Link>
               <Link href="/spanakopita" className={styles.navLink}>Spanakopita</Link>
               <a href="#contact" className={styles.navLink}>Contact</a>
@@ -34,10 +40,51 @@ export default function Header() {
                 )}
               </button>
             </nav>
+
+            {/* Mobile Nav */}
+            <div className={styles.mobileControls}>
+              <button 
+                onClick={() => setCartOpen(true)}
+                className={styles.mobileCartButton}
+              >
+                <span className={styles.cartIcon}>🛒</span>
+                {cartCount > 0 && (
+                  <span className={styles.mobileCartBadge}>{cartCount}</span>
+                )}
+              </button>
+              <button 
+                onClick={() => setMenuOpen(!menuOpen)}
+                className={styles.hamburger}
+                aria-label="Toggle menu"
+              >
+                <span className={`${styles.hamburgerLine} ${menuOpen ? styles.hamburgerLineOpen : ''}`}></span>
+                <span className={`${styles.hamburgerLine} ${menuOpen ? styles.hamburgerLineOpen : ''}`}></span>
+                <span className={`${styles.hamburgerLine} ${menuOpen ? styles.hamburgerLineOpen : ''}`}></span>
+              </button>
+            </div>
           </div>
         </div>
+
+        {/* Mobile Menu Dropdown */}
+        {menuOpen && (
+          <div className={styles.mobileMenu}>
+            <Link href="/treats" className={styles.mobileNavLink} onClick={closeMenu}>
+              Shop
+            </Link>
+            <Link href="/spanakopita" className={styles.mobileNavLink} onClick={closeMenu}>
+              Spanakopita
+            </Link>
+            <a href="#contact" className={styles.mobileNavLink} onClick={closeMenu}>
+              Contact
+            </a>
+          </div>
+        )}
       </header>
-      <CartDrawer isOpen={cartOpen} onClose={() => setCartOpen(false)} />
+      {cartOpen && (
+        <Suspense fallback={null}>
+          <CartDrawer isOpen={cartOpen} onClose={() => setCartOpen(false)} />
+        </Suspense>
+      )}
     </>
   );
 }
