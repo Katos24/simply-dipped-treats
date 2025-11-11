@@ -37,6 +37,18 @@ export const products: Product[] = [
       { size: 'Dozen (12)', price: 35 }
     ]
   },
+      {
+    id: 'brownie-cosmic',
+    name: 'Cosmic Brownie',
+    category: 'brownie-individual',
+    description: 'Pending - Hi Lauren',
+    image: '/images/treats/brownies/cosmic.jpg',
+    variants: [
+      { size: 'Half Dozen (6)', price: 20 },
+      { size: 'Dozen (12)', price: 35 }
+    ]
+  },
+
   {
     id: 'brownie-brookie',
     name: 'Brookie',
@@ -115,7 +127,7 @@ export const products: Product[] = [
     name: 'Traditional Greek Spanakopita',
     category: 'spanakopita',
     description: 'Fresh spinach, authentic Greek feta, and herbs wrapped in crispy phyllo dough',
-    image: '/images/spanakopita/hero.jpg',
+    image: '/images/spanakopita/spanakopita.jpg',
     variants: [
       { size: 'Half Dozen (6)', price: 35 },
       { size: 'Dozen (12)', price: 62 },

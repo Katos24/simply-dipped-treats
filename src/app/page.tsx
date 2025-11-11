@@ -1,152 +1,156 @@
-'use client';
-
-import { useState } from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 import styles from './page.module.css';
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState('brownies');
-
   return (
     <main>
-      {/* Hero */}
+      {/* Hero Section */}
       <section className={styles.hero}>
-        <div className="container text-center">
-          <h1 className={styles.heroTitle}>Simply Dipped Treats</h1>
-          <p className={styles.heroSubtitle}>
-            Handcrafted desserts made with love in Holbrook, NY
-          </p>
-        </div>
-      </section>
-
-      {/* Products */}
-      <section className={styles.productsSection}>
-        <div className="container max-w-5xl">
-          {/* Tabs */}
-          <div className={styles.tabContainer}>
-            <button
-              onClick={() => setActiveTab('brownies')}
-              className={`${styles.tab} ${activeTab === 'brownies' ? styles.tabActive : ''}`}
-            >
-              Brownie Bites
-            </button>
-            <button
-              onClick={() => setActiveTab('cakepops')}
-              className={`${styles.tab} ${activeTab === 'cakepops' ? styles.tabActive : ''}`}
-            >
-              Cake Pops
-            </button>
-            <button
-              onClick={() => setActiveTab('ricekrispies')}
-              className={`${styles.tab} ${activeTab === 'ricekrispies' ? styles.tabActive : ''}`}
-            >
-              Rice Krispies
-            </button>
-          </div>
-
-          {/* Content */}
-          <div className={styles.productCard}>
-            {activeTab === 'brownies' && (
-              <div>
-                <div className={styles.productImage}>
-                  <div className={styles.imagePlaceholder}>
-                    📷 Add brownie bites photo here
-                    <span className={styles.imagePath}>public/images/treats/brownies/hero.jpg</span>
-                  </div>
-                </div>
-                <h2 className={styles.productTitle}>Brownie Bites</h2>
-                <p className={styles.productDescription}>
-                  Rich, fudgy brownie bites dipped in premium chocolate
-                </p>
-                
-                <div className={styles.priceGrid}>
-                  <div className={styles.priceCard}>
-                    <h3 className={styles.priceLabel}>Half Dozen</h3>
-                    <p className={styles.price}>$18</p>
-                    <button className={styles.orderButton}>Order Now</button>
-                  </div>
-                  <div className={styles.priceCard}>
-                    <h3 className={styles.priceLabel}>Dozen</h3>
-                    <p className={styles.price}>$32</p>
-                    <button className={styles.orderButton}>Order Now</button>
-                  </div>
-                </div>
+        <div className="container">
+          <div className={styles.heroContent}>
+            <div className={styles.heroText}>
+              <h1 className={styles.heroTitle}>
+                Handcrafted Treats
+                <span className={styles.heroTitleAccent}>Made with Love</span>
+              </h1>
+              <p className={styles.heroSubtitle}>
+                Indulge in our decadent brownie bites, cake pops, rice krispies, and authentic Greek spanakopita. 
+                Every treat is made fresh to order in Holbrook, NY.
+              </p>
+              <div className={styles.heroButtons}>
+                <Link href="/treats" className={styles.primaryButton}>
+                  Shop Treats 🍫
+                </Link>
+                <Link href="/spanakopita" className={styles.secondaryButton}>
+                  Try Spanakopita
+                </Link>
               </div>
-            )}
-
-            {activeTab === 'cakepops' && (
-              <div>
-                <div className={styles.productImage}>
-                  <div className={styles.imagePlaceholder}>
-                    📷 Add cake pops photo here
-                    <span className={styles.imagePath}>public/images/treats/cakepops/hero.jpg</span>
-                  </div>
-                </div>
-                <h2 className={styles.productTitle}>Cake Pops</h2>
-                <p className={styles.productDescription}>
-                  Moist cake pops coated in smooth chocolate
-                </p>
-                
-                <div className={styles.priceGrid}>
-                  <div className={styles.priceCard}>
-                    <h3 className={styles.priceLabel}>Half Dozen</h3>
-                    <p className={styles.price}>$20</p>
-                    <button className={styles.orderButton}>Order Now</button>
-                  </div>
-                  <div className={styles.priceCard}>
-                    <h3 className={styles.priceLabel}>Dozen</h3>
-                    <p className={styles.price}>$35</p>
-                    <button className={styles.orderButton}>Order Now</button>
-                  </div>
-                </div>
+            </div>
+            <div className={styles.heroImage}>
+              <div className={styles.heroImageCard}>
+                <Image
+                  src="/images/treats/brownies/pumpkin.jpg"
+                  alt="Delicious brownie bites"
+                  width={500}
+                  height={500}
+                  priority
+                  className={styles.heroImg}
+                />
               </div>
-            )}
-
-            {activeTab === 'ricekrispies' && (
-              <div>
-                <div className={styles.productImage}>
-                  <div className={styles.imagePlaceholder}>
-                    📷 Add rice krispies photo here
-                    <span className={styles.imagePath}>public/images/treats/ricekrispies/hero.jpg</span>
-                  </div>
-                </div>
-                <h2 className={styles.productTitle}>Rice Krispies</h2>
-                <p className={styles.productDescription}>
-                  Classic rice krispie treats with a chocolate twist
-                </p>
-                
-                <div className={styles.priceGrid}>
-                  <div className={styles.priceCard}>
-                    <h3 className={styles.priceLabel}>Half Dozen</h3>
-                    <p className={styles.price}>$15</p>
-                    <button className={styles.orderButton}>Order Now</button>
-                  </div>
-                  <div className={styles.priceCard}>
-                    <h3 className={styles.priceLabel}>Dozen</h3>
-                    <p className={styles.price}>$28</p>
-                    <button className={styles.orderButton}>Order Now</button>
-                  </div>
-                </div>
-              </div>
-            )}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Contact */}
-      <section id="contact" className={styles.contactSection}>
-        <div className="container max-w-2xl">
-          <h2 className={styles.contactTitle}>Ready to Order?</h2>
-          <p className={styles.contactDescription}>
-            Contact us to place your order for pickup in Holbrook, NY
-          </p>
-          <div className={styles.contactInfo}>
-            <p>
-              📧 <a href="mailto:orders@simplydipped.com" className={styles.contactLink}>orders@simplydipped.com</a>
+      {/* Features Section */}
+      <section className={styles.features}>
+        <div className="container">
+          <div className={styles.featuresGrid}>
+            <div className={styles.featureCard}>
+              <div className={styles.featureIcon}>🏠</div>
+              <h3 className={styles.featureTitle}>Homemade</h3>
+              <p className={styles.featureText}>
+                Every treat is handcrafted in small batches with premium ingredients
+              </p>
+            </div>
+            <div className={styles.featureCard}>
+              <div className={styles.featureIcon}>✨</div>
+              <h3 className={styles.featureTitle}>Fresh to Order</h3>
+              <p className={styles.featureText}>
+                Made fresh every week - order by Wednesday for Saturday pickup
+              </p>
+            </div>
+            <div className={styles.featureCard}>
+              <div className={styles.featureIcon}>🎨</div>
+              <h3 className={styles.featureTitle}>Custom Orders</h3>
+              <p className={styles.featureText}>
+                Special events? We can create custom treats just for you
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Categories Section */}
+      <section className={styles.categories}>
+        <div className="container">
+          <h2 className={styles.sectionTitle}>What We Offer</h2>
+          <p className={styles.sectionSubtitle}>Choose from our delicious selection</p>
+          
+          <div className={styles.categoriesGrid}>
+            <Link href="/treats/brownie-bites" className={styles.categoryCard}>
+              <div className={styles.categoryEmoji}>🍫</div>
+              <h3 className={styles.categoryTitle}>Brownie Bites</h3>
+              <p className={styles.categoryDesc}>Fudgy, rich brownies in amazing flavors</p>
+              <span className={styles.categoryArrow}>Shop Now →</span>
+            </Link>
+
+            <Link href="/treats/cake-pops" className={styles.categoryCard}>
+              <div className={styles.categoryEmoji}>🍭</div>
+              <h3 className={styles.categoryTitle}>Cake Pops</h3>
+              <p className={styles.categoryDesc}>Moist cake coated in smooth chocolate</p>
+              <span className={styles.categoryArrow}>Shop Now →</span>
+            </Link>
+
+            <Link href="/treats/rice-krispies" className={styles.categoryCard}>
+              <div className={styles.categoryEmoji}>🌾</div>
+              <h3 className={styles.categoryTitle}>Rice Krispies</h3>
+              <p className={styles.categoryDesc}>Classic treats with a creative twist</p>
+              <span className={styles.categoryArrow}>Shop Now →</span>
+            </Link>
+
+            <Link href="/spanakopita" className={styles.categoryCard}>
+              <div className={styles.categoryEmoji}>🥟</div>
+              <h3 className={styles.categoryTitle}>Spanakopita</h3>
+              <p className={styles.categoryDesc}>Authentic Greek spinach & feta triangles</p>
+              <span className={styles.categoryArrow}>Order Now →</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className={styles.howItWorks}>
+        <div className="container">
+          <h2 className={styles.sectionTitle}>How It Works</h2>
+          <div className={styles.stepsGrid}>
+            <div className={styles.step}>
+              <div className={styles.stepNumber}>1</div>
+              <h3 className={styles.stepTitle}>Browse & Order</h3>
+              <p className={styles.stepText}>
+                Choose your favorites and place your order by Wednesday evening
+              </p>
+            </div>
+            <div className={styles.step}>
+              <div className={styles.stepNumber}>2</div>
+              <h3 className={styles.stepTitle}>We Bake Fresh</h3>
+              <p className={styles.stepText}>
+                Your treats are made fresh on Friday with premium ingredients
+              </p>
+            </div>
+            <div className={styles.step}>
+              <div className={styles.stepNumber}>3</div>
+              <h3 className={styles.stepTitle}>Pick Up Saturday</h3>
+              <p className={styles.stepText}>
+                Collect your order on Saturday between 10am - 2pm or choose delivery
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className={styles.cta}>
+        <div className="container">
+          <div className={styles.ctaContent}>
+            <h2 className={styles.ctaTitle}>Ready to Indulge?</h2>
+            <p className={styles.ctaText}>
+              Order now and taste the difference homemade makes
             </p>
-            <p>
-              📱 <a href="tel:5551234567" className={styles.contactLink}>(555) 123-4567</a>
-            </p>
+            <Link href="/treats" className={styles.ctaButton}>
+              Start Shopping
+            </Link>
           </div>
         </div>
       </section>
