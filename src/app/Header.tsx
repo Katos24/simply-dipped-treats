@@ -1,39 +1,42 @@
-import Link from 'next/link';
+'use client';
+
+import { useCart } from '@/context/CartContext';
+import { useState } from 'react';
+import CartDrawer from '@/components/CartDrawer';
+import styles from './Header.module.css';
 
 export default function Header() {
+  const { cartCount } = useCart();
+  const [cartOpen, setCartOpen] = useState(false);
+
   return (
-    <header className="bg-white/80 backdrop-blur-sm shadow-sm border-b border-[var(--border)] sticky top-0 z-50">
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex justify-between items-center">
-          <Link
-            href="/"
-            className="text-2xl font-bold text-[var(--primary)] hover:text-[var(--accent)] transition"
-          >
-            Simply Dipped
-          </Link>
-          <nav className="flex gap-8">
-            <Link
-              href="/treats"
-              className="text-[var(--foreground)] hover:text-[var(--accent)] transition font-medium"
-            >
-              Treats
-            </Link>
-            <Link
-              href="/spanakopita"
-              className="text-[var(--foreground)] hover:text-[var(--accent)] transition font-medium"
-            >
-              Spanakopita
-            </Link>
-            {/* Anchor is fine for in-page sectionn */}
-            <a
-              href="#contact"
-              className="text-[var(--foreground)] hover:text-[var(--accent)] transition font-medium"
-            >
-              Contact
+    <>
+      <header className={styles.header}>
+        <div className="container mx-auto px-4 py-6">
+          <div className={styles.headerContent}>
+            <a href="/" className={styles.logo}>
+              <span className={styles.logoIcon}>🍫</span>
+              <span className={styles.logoText}>Simply Dipped</span>
             </a>
-          </nav>
+            <nav className={styles.nav}>
+              <a href="/treats" className={styles.navLink}>Shop</a>
+              <a href="/spanakopita" className={styles.navLink}>Spanakopita</a>
+              <a href="#contact" className={styles.navLink}>Contact</a>
+              <button 
+                onClick={() => setCartOpen(true)}
+                className={styles.cartButton}
+              >
+                <span className={styles.cartIcon}>🛒</span>
+                <span className={styles.cartText}>Cart</span>
+                {cartCount > 0 && (
+                  <span className={styles.cartBadge}>{cartCount}</span>
+                )}
+              </button>
+            </nav>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+      <CartDrawer isOpen={cartOpen} onClose={() => setCartOpen(false)} />
+    </>
   );
 }

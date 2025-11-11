@@ -1,60 +1,53 @@
-'use client';
-
-import { useState } from 'react';
-import { products } from '@/data/products';
-import ProductCard from '@/components/products/ProductCard';
+import Link from 'next/link';
 import styles from './page.module.css';
 
-type Category = 'brownie-bites' | 'cake-pops' | 'rice-krispies' | 'spanakopita';
+const categories = [
+  {
+    name: 'Brownie Bites',
+    description: 'Rich, fudgy brownie bites in various flavors',
+    href: '/treats/brownie-bites',
+    emoji: '🍫'
+  },
+  {
+    name: 'Cake Pops',
+    description: 'Moist cake pops coated in smooth chocolate',
+    href: '/treats/cake-pops',
+    emoji: '🍭'
+  },
+  {
+    name: 'Rice Krispies',
+    description: 'Classic rice krispie treats with a twist',
+    href: '/treats/rice-krispies',
+    emoji: '🍚'
+  },
+  {
+    name: 'Spanakopita',
+    description: 'Authentic Greek spinach & feta pastries',
+    href: '/spanakopita',
+    emoji: '🥟'
+  }
+];
 
 export default function TreatsPage() {
-  const [activeTab, setActiveTab] = useState<Category>('brownie-bites');
-
-  const filteredProducts = products.filter(p => p.category === activeTab);
-
   return (
     <main>
       <section className={styles.hero}>
         <div className="container text-center">
-          <h1 className={styles.title}>Our Menu</h1>
-          <p className={styles.subtitle}>Handcrafted desserts & authentic Greek food made fresh to order</p>
+          <h1 className={styles.title}>Our Treats</h1>
+          <p className={styles.subtitle}>Choose a category to explore our menu</p>
         </div>
       </section>
 
-      <section className={styles.productsSection}>
+      <section className={styles.categoriesSection}>
         <div className="container">
-          {/* Tabs */}
-          <div className={styles.tabs}>
-            <button
-              onClick={() => setActiveTab('brownie-bites')}
-              className={`${styles.tab} ${activeTab === 'brownie-bites' ? styles.tabActive : ''}`}
-            >
-              Brownie Bites
-            </button>
-            <button
-              onClick={() => setActiveTab('cake-pops')}
-              className={`${styles.tab} ${activeTab === 'cake-pops' ? styles.tabActive : ''}`}
-            >
-              Cake Pops
-            </button>
-            <button
-              onClick={() => setActiveTab('rice-krispies')}
-              className={`${styles.tab} ${activeTab === 'rice-krispies' ? styles.tabActive : ''}`}
-            >
-              Rice Krispies
-            </button>
-            <button
-              onClick={() => setActiveTab('spanakopita')}
-              className={`${styles.tab} ${activeTab === 'spanakopita' ? styles.tabActive : ''}`}
-            >
-              Spanakopita
-            </button>
-          </div>
-
-          {/* Products Grid */}
           <div className={styles.grid}>
-            {filteredProducts.map(product => (
-              <ProductCard key={product.id} product={product} />
+            {categories.map((category) => (
+              <Link key={category.href} href={category.href} className={styles.categoryCard}>
+                <div className={styles.emoji}>{category.emoji}</div>
+                <h2 className={styles.categoryName}>{category.name}</h2>
+                <p className={styles.categoryDescription}>{category.description}</p>
+                <span className={styles.arrow}>→</span>
+              </Link>
             ))}
           </div>
         </div>

@@ -2,6 +2,9 @@
 
 import { Product } from '@/data/products';
 import { useState } from 'react';
+import { useCart } from '@/context/CartContext';
+import { toast } from 'sonner';
+import Image from 'next/image';
 import styles from './ProductCard.module.css';
 
 interface ProductCardProps {
@@ -9,91 +12,93 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
-  const [selectedVariant, setSelectedVariant] = useState<number | null>(null);
-  const [fulfillmentType, setFulfillmentType] = useState<'pickup' | 'delivery'>('pickup');
+  const { addToCart } = useCart();
+  const [selectedVariant, setSelectedVariant] = useState(0);
+  const [isAdded, setIsAdded] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
-  const handleOrder = async (variantIndex: number) => {
-    const variant = product.variants[variantIndex];
-    const productName = `${product.name} - ${variant.size}`;
+  const handleAddToCart = () => {
+    addToCart(product, selectedVariant);
+    
+    // Show success animation
+    setIsAdded(true);
+    
+    // Show toast
+    toast.success('Added to cart!', {
+      description: `${product.name} - ${product.variants[selectedVariant].size}`,
+      duration: 2000,
+    });
 
-    try {
-      const response = await fetch('/api/checkout', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          productName,
-          price: variant.price,
-          quantity: 1,
-          fulfillmentType,
-        }),
-      });
-
-      const { url } = await response.json();
-      
-      if (url) {
-        window.location.href = url;
-      }
-    } catch (error) {
-      console.error('Order error:', error);
-      alert('Error processing order. Please try again.');
-    }
+    // Reset button after animation
+    setTimeout(() => {
+      setIsAdded(false);
+    }, 2000);
   };
 
   return (
     <div className={styles.card}>
       <div className={styles.imageContainer}>
-        <div className={styles.imagePlaceholder}>
-          📷 {product.name}
-          <span className={styles.imagePath}>{product.image}</span>
-        </div>
+        {!imageError ? (
+          <Image
+            src={product.image}
+            alt={product.name}
+            fill
+            className={styles.productImage}
+            onError={() => setImageError(true)}
+          />
+        ) : (
+          <div className={styles.imagePlaceholder}>
+            📷 {product.name}
+            <span className={styles.imagePath}>{product.image}</span>
+          </div>
+        )}
       </div>
       
       <div className={styles.content}>
         <h3 className={styles.title}>{product.name}</h3>
         <p className={styles.description}>{product.description}</p>
         
-        {/* Fulfillment Type Selector */}
-        <div className={styles.fulfillmentSelector}>
-          <label className={styles.fulfillmentLabel}>
-            <input
-              type="radio"
-              name={`fulfillment-${product.id}`}
-              value="pickup"
-              checked={fulfillmentType === 'pickup'}
-              onChange={() => setFulfillmentType('pickup')}
-            />
-            <span>Pickup (Free)</span>
-          </label>
-          <label className={styles.fulfillmentLabel}>
-            <input
-              type="radio"
-              name={`fulfillment-${product.id}`}
-              value="delivery"
-              checked={fulfillmentType === 'delivery'}
-              onChange={() => setFulfillmentType('delivery')}
-            />
-            <span>Delivery (+$10)</span>
-          </label>
+        {/* Show pack contents if available */}
+        {product.contents && (
+          <div className={styles.packContents}>
+            <h4 className={styles.contentsTitle}>What's Included:</h4>
+            <ul className={styles.contentsList}>
+              {product.contents.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Size & Price Selector */}
+        <div className={styles.selectorSection}>
+          <label className={styles.selectLabel}>Size & Price:</label>
+          <select 
+            className={styles.sizeSelect}
+            value={selectedVariant}
+            onChange={(e) => setSelectedVariant(Number(e.target.value))}
+          >
+            {product.variants.map((variant, index) => (
+              <option key={index} value={index}>
+                {variant.size} - ${variant.price}
+              </option>
+            ))}
+          </select>
         </div>
 
-        <div className={styles.variants}>
-          {product.variants.map((variant, index) => (
-            <div key={index} className={styles.variant}>
-              <div className={styles.variantInfo}>
-                <span className={styles.size}>{variant.size}</span>
-                <span className={styles.price}>
-                  ${fulfillmentType === 'delivery' ? variant.price + 10 : variant.price}
-                </span>
-              </div>
-              <button 
-                className={styles.orderButton}
-                onClick={() => handleOrder(index)}
-              >
-                Order Now
-              </button>
-            </div>
-          ))}
-        </div>
+        {/* Add to Cart Button */}
+        <button 
+          className={`${styles.addButton} ${isAdded ? styles.addButtonAdded : ''}`}
+          onClick={handleAddToCart}
+        >
+          {isAdded ? (
+            <>
+              <span className={styles.checkmark}>✓</span> Added to Cart
+            </>
+          ) : (
+            'Add to Cart'
+          )}
+        </button>
       </div>
     </div>
   );

@@ -6,43 +6,88 @@ export interface ProductVariant {
 export interface Product {
   id: string;
   name: string;
-  category: 'brownie-bites' | 'cake-pops' | 'rice-krispies' | 'spanakopita';
+  category: 'brownie-individual' | 'brownie-pack' | 'cakepop-individual' | 'cakepop-pack' | 'ricekrispie-individual' | 'ricekrispie-pack' | 'spanakopita';
   description: string;
   image: string;
   variants: ProductVariant[];
+  contents?: string[]; // For packs - what's included
 }
 
 export const products: Product[] = [
-  // Brownie Bites
+  // Individual Brownie Bites
   {
-    id: 'brownie-classic',
-    name: 'Classic Chocolate',
-    category: 'brownie-bites',
-    description: 'Rich, fudgy brownie dipped in premium dark chocolate',
-    image: '/images/treats/brownies/classic.jpg',
+    id: 'brownie-pumpkin',
+    name: 'Pumpkin Cheesecake',
+    category: 'brownie-individual',
+    description: 'Rich brownie with pumpkin cheesecake swirl',
+    image: '/images/treats/brownies/pumpkin.jpg',
     variants: [
       { size: 'Half Dozen (6)', price: 18 },
-      { size: 'Dozen (12)', price: 32 },
-        { size: 'Two Doxen (24)', price: 50 }
+      { size: 'Dozen (12)', price: 32 }
     ]
   },
   {
-    id: 'brownie-peanutbutter',
-    name: 'Peanut Butter',
-    category: 'brownie-bites',
-    description: 'Chocolate brownie with creamy peanut butter coating',
-    image: '/images/treats/brownies/peanutbutter.jpg',
+    id: 'brownie-reeses',
+    name: "Reese's PB Cup",
+    category: 'brownie-individual',
+    description: 'Chocolate brownie with peanut butter cup pieces',
+    image: '/images/treats/brownies/reeses.jpg',
     variants: [
       { size: 'Half Dozen (6)', price: 20 },
       { size: 'Dozen (12)', price: 35 }
     ]
   },
-  
+  {
+    id: 'brownie-brookie',
+    name: 'Brookie',
+    category: 'brownie-individual',
+    description: 'Half brownie, half cookie - best of both worlds',
+    image: '/images/treats/brownies/brookie.jpg',
+    variants: [
+      { size: 'Half Dozen (6)', price: 20 },
+      { size: 'Dozen (12)', price: 35 }
+    ]
+  },
+
+  // Brownie Packs
+  {
+    id: 'brownie-winter-pack',
+    name: 'Winter Pack',
+    category: 'brownie-pack',
+    description: 'Perfect seasonal variety pack',
+    image: '/images/treats/brownies/winter-pack.jpg',
+    contents: [
+      '3 Pumpkin Cheesecake',
+      '3 Peppermint',
+      '3 Snickers',
+      '3 Oreo'
+    ],
+    variants: [
+      { size: '12 pieces', price: 38 }
+    ]
+  },
+  {
+    id: 'brownie-fat-pack',
+    name: 'Fat Pack',
+    category: 'brownie-pack',
+    description: 'Extra large variety for parties',
+    image: '/images/treats/brownies/fat-pack.jpg',
+    contents: [
+      '6 Classic Chocolate',
+      '6 Reeses PB',
+      '6 Oreo',
+      '6 Brookie'
+    ],
+    variants: [
+      { size: '24 pieces', price: 70 }
+    ]
+  },
+
   // Cake Pops
   {
     id: 'cakepop-vanilla',
     name: 'Vanilla Dream',
-    category: 'cake-pops',
+    category: 'cakepop-individual',
     description: 'Moist vanilla cake pop with chocolate coating',
     image: '/images/treats/cakepops/vanilla.jpg',
     variants: [
@@ -50,12 +95,12 @@ export const products: Product[] = [
       { size: 'Dozen (12)', price: 35 }
     ]
   },
-  
+
   // Rice Krispies
   {
     id: 'ricekrispie-classic',
     name: 'Classic Chocolate',
-    category: 'rice-krispies',
+    category: 'ricekrispie-individual',
     description: 'Traditional rice krispie treats dipped in chocolate',
     image: '/images/treats/ricekrispies/classic.jpg',
     variants: [
@@ -70,7 +115,7 @@ export const products: Product[] = [
     name: 'Traditional Greek Spanakopita',
     category: 'spanakopita',
     description: 'Fresh spinach, authentic Greek feta, and herbs wrapped in crispy phyllo dough',
-    image: '/images/spanakopita/spanakopitatraycopy.jpg',
+    image: '/images/spanakopita/hero.jpg',
     variants: [
       { size: 'Half Dozen (6)', price: 35 },
       { size: 'Dozen (12)', price: 62 },
