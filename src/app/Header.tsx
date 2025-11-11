@@ -2,6 +2,7 @@
 
 import { useCart } from '@/context/CartContext';
 import { useState } from 'react';
+import Link from 'next/link';
 import CartDrawer from '@/components/CartDrawer';
 import styles from './Header.module.css';
 
@@ -14,13 +15,13 @@ export default function Header() {
       <header className={styles.header}>
         <div className="container mx-auto px-4 py-6">
           <div className={styles.headerContent}>
-            <a href="/" className={styles.logo}>
+            <Link href="/" className={styles.logo}>
               <span className={styles.logoIcon}>🍫</span>
               <span className={styles.logoText}>Simply Dipped</span>
-            </a>
+            </Link>
             <nav className={styles.nav}>
-              <a href="/treats" className={styles.navLink}>Shop</a>
-              <a href="/spanakopita" className={styles.navLink}>Spanakopita</a>
+              <Link href="/treats" className={styles.navLink}>Shop</Link>
+              <Link href="/spanakopita" className={styles.navLink}>Spanakopita</Link>
               <a href="#contact" className={styles.navLink}>Contact</a>
               <button 
                 onClick={() => setCartOpen(true)}

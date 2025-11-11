@@ -20,16 +20,13 @@ export default function ProductCard({ product }: ProductCardProps) {
   const handleAddToCart = () => {
     addToCart(product, selectedVariant);
     
-    // Show success animation
     setIsAdded(true);
     
-    // Show toast
     toast.success('Added to cart!', {
       description: `${product.name} - ${product.variants[selectedVariant].size}`,
       duration: 2000,
     });
 
-    // Reset button after animation
     setTimeout(() => {
       setIsAdded(false);
     }, 2000);
@@ -58,10 +55,9 @@ export default function ProductCard({ product }: ProductCardProps) {
         <h3 className={styles.title}>{product.name}</h3>
         <p className={styles.description}>{product.description}</p>
         
-        {/* Show pack contents if available */}
         {product.contents && (
           <div className={styles.packContents}>
-            <h4 className={styles.contentsTitle}>What's Included:</h4>
+            <h4 className={styles.contentsTitle}>What&apos;s Included:</h4>
             <ul className={styles.contentsList}>
               {product.contents.map((item, index) => (
                 <li key={index}>{item}</li>
@@ -70,7 +66,6 @@ export default function ProductCard({ product }: ProductCardProps) {
           </div>
         )}
 
-        {/* Size & Price Selector */}
         <div className={styles.selectorSection}>
           <label className={styles.selectLabel}>Size & Price:</label>
           <select 
@@ -86,7 +81,6 @@ export default function ProductCard({ product }: ProductCardProps) {
           </select>
         </div>
 
-        {/* Add to Cart Button */}
         <button 
           className={`${styles.addButton} ${isAdded ? styles.addButtonAdded : ''}`}
           onClick={handleAddToCart}

@@ -3,9 +3,16 @@ import Stripe from 'stripe';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
+interface CartItem {
+  productName: string;
+  price: number;
+  quantity: number;
+  fulfillmentType: 'pickup' | 'delivery';
+}
+
 export async function POST(req: NextRequest) {
   try {
-    const { items } = await req.json();
+    const { items }: { items: CartItem[] } = await req.json();
 
     if (!items || items.length === 0) {
       return NextResponse.json(
@@ -17,8 +24,7 @@ export async function POST(req: NextRequest) {
     const lineItems: Stripe.Checkout.SessionCreateParams.LineItem[] = [];
     let needsShipping = false;
 
-    items.forEach((item: any) => {
-      // Add product
+    items.forEach((item: CartItem) => {
       lineItems.push({
         price_data: {
           currency: 'usd',
@@ -30,7 +36,6 @@ export async function POST(req: NextRequest) {
         quantity: item.quantity,
       });
 
-      // Add delivery fee if needed
       if (item.fulfillmentType === 'delivery') {
         needsShipping = true;
         lineItems.push({
@@ -63,10 +68,11 @@ export async function POST(req: NextRequest) {
     const session = await stripe.checkout.sessions.create(sessionConfig);
 
     return NextResponse.json({ url: session.url });
-  } catch (error: any) {
+  } catch (error) {
     console.error('Checkout error:', error);
+    const errorMessage = error instanceof Error ? error.message : 'Error creating checkout session';
     return NextResponse.json(
-      { error: error?.message || 'Error creating checkout session' },
+      { error: errorMessage },
       { status: 500 }
     );
   }
