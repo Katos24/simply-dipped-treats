@@ -6,7 +6,7 @@ export interface ProductVariant {
 export interface Product {
   id: string;
   name: string;
-  category: 'brownie-bites' | 'cake-pops' | 'rice-krispies';
+  category: 'brownie-bites' | 'cake-pops' | 'rice-krispies' | 'spanakopita';
   description: string;
   image: string;
   variants: ProductVariant[];
@@ -22,7 +22,8 @@ export const products: Product[] = [
     image: '/images/treats/brownies/classic.jpg',
     variants: [
       { size: 'Half Dozen (6)', price: 18 },
-      { size: 'Dozen (12)', price: 32 }
+      { size: 'Dozen (12)', price: 32 },
+        { size: 'Two Doxen (24)', price: 50 }
     ]
   },
   {
@@ -60,6 +61,20 @@ export const products: Product[] = [
     variants: [
       { size: 'Half Dozen (6)', price: 15 },
       { size: 'Dozen (12)', price: 28 }
+    ]
+  },
+
+  // Spanakopita
+  {
+    id: 'spanakopita-traditional',
+    name: 'Traditional Greek Spanakopita',
+    category: 'spanakopita',
+    description: 'Fresh spinach, authentic Greek feta, and herbs wrapped in crispy phyllo dough',
+    image: '/images/spanakopita/spanakopitatraycopy.jpg',
+    variants: [
+      { size: 'Half Dozen (6)', price: 35 },
+      { size: 'Dozen (12)', price: 62 },
+      { size: 'Party Size (24)', price: 110 }
     ]
   }
 ];

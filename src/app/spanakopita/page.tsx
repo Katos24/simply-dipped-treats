@@ -1,6 +1,10 @@
+import { products } from '@/data/products';
+import ProductCard from '@/components/products/ProductCard';
 import styles from './page.module.css';
 
 export default function SpanakopitaPage() {
+  const spanakopitaProduct = products.find(p => p.id === 'spanakopita-traditional');
+
   return (
     <div>
       {/* Hero */}
@@ -13,38 +17,10 @@ export default function SpanakopitaPage() {
         </div>
       </section>
 
-      {/* Pricing */}
-      <section className={styles.pricingSection}>
-        <div className="container">
-          <h2 className={styles.sectionTitle}>Order Fresh</h2>
-          
-          <div className={styles.priceGrid}>
-            <div className={styles.priceCard}>
-              <h3 className={styles.cardTitle}>Half Dozen</h3>
-              <p className={styles.cardSubtitle}>6 triangles</p>
-              <p className={styles.price}>$35</p>
-              <button className={styles.orderButton}>Order Now</button>
-            </div>
-
-            <div className={`${styles.priceCard} ${styles.popular}`}>
-              <div className={styles.popularBadge}>POPULAR</div>
-              <h3 className={styles.cardTitle}>Dozen</h3>
-              <p className={styles.cardSubtitle}>12 triangles</p>
-              <p className={styles.price}>$62</p>
-              <button className={styles.orderButton}>Order Now</button>
-            </div>
-
-            <div className={styles.priceCard}>
-              <h3 className={styles.cardTitle}>Party Size</h3>
-              <p className={styles.cardSubtitle}>24 triangles</p>
-              <p className={styles.price}>$110</p>
-              <button className={styles.orderButton}>Order Now</button>
-            </div>
-          </div>
-
-          <p className={styles.taxNote}>
-            All prices include tax • Pickup in Holbrook, NY
-          </p>
+      {/* Product */}
+      <section className={styles.productSection}>
+        <div className="container max-w-4xl">
+          {spanakopitaProduct && <ProductCard product={spanakopitaProduct} />}
         </div>
       </section>
 
@@ -73,8 +49,8 @@ export default function SpanakopitaPage() {
             <div className={styles.step}>
               <div className={styles.stepIcon}>📦</div>
               <div className={styles.stepContent}>
-                <h3>Saturday Pickup</h3>
-                <p>Pick up your order in Holbrook, NY. Delivery available for larger orders.</p>
+                <h3>Saturday Pickup or Delivery</h3>
+                <p>Pick up your order in Holbrook, NY or choose delivery for +$10</p>
               </div>
             </div>
           </div>

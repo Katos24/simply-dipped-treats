@@ -5,8 +5,10 @@ import { products } from '@/data/products';
 import ProductCard from '@/components/products/ProductCard';
 import styles from './page.module.css';
 
+type Category = 'brownie-bites' | 'cake-pops' | 'rice-krispies' | 'spanakopita';
+
 export default function TreatsPage() {
-  const [activeTab, setActiveTab] = useState<'brownie-bites' | 'cake-pops' | 'rice-krispies'>('brownie-bites');
+  const [activeTab, setActiveTab] = useState<Category>('brownie-bites');
 
   const filteredProducts = products.filter(p => p.category === activeTab);
 
@@ -14,8 +16,8 @@ export default function TreatsPage() {
     <main>
       <section className={styles.hero}>
         <div className="container text-center">
-          <h1 className={styles.title}>Our Treats</h1>
-          <p className={styles.subtitle}>Handcrafted desserts made fresh to order</p>
+          <h1 className={styles.title}>Our Menu</h1>
+          <p className={styles.subtitle}>Handcrafted desserts & authentic Greek food made fresh to order</p>
         </div>
       </section>
 
@@ -40,6 +42,12 @@ export default function TreatsPage() {
               className={`${styles.tab} ${activeTab === 'rice-krispies' ? styles.tabActive : ''}`}
             >
               Rice Krispies
+            </button>
+            <button
+              onClick={() => setActiveTab('spanakopita')}
+              className={`${styles.tab} ${activeTab === 'spanakopita' ? styles.tabActive : ''}`}
+            >
+              Spanakopita
             </button>
           </div>
 
