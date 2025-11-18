@@ -1,0 +1,505 @@
+/* Hero Section */
+.hero {
+  padding: 5rem 0 4rem;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 50%, #fcd34d 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '🎉';
+  position: absolute;
+  font-size: 20rem;
+  opacity: 0.1;
+  top: -5rem;
+  right: -5rem;
+  animation: spin 20s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.heroContent {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.heroBadge {
+  display: inline-block;
+  background: white;
+  color: #f59e0b;
+  padding: 0.5rem 1.5rem;
+  border-radius: 2rem;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.heroSubtitle {
+  font-size: 1.25rem;
+  color: #6b4423;
+  line-height: 1.8;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Section Styles */
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.sectionSubtitle {
+  text-align: center;
+  font-size: 1.125rem;
+  color: #6b7280;
+  margin-bottom: 3rem;
+}
+
+/* Why Section */
+.whySection {
+  padding: 5rem 0;
+  background: white;
+}
+
+.whyGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.whyCard {
+  text-align: center;
+  padding: 2rem;
+  background: var(--muted);
+  border-radius: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whyCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.whyIcon {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.whyTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.75rem;
+}
+
+.whyText {
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* Packs Section */
+.packsSection {
+  padding: 5rem 0;
+  background: #f9fafb;
+}
+
+.packsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.packCard {
+  background: white;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  border: 2px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.packCard:hover {
+  border-color: var(--accent);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+}
+
+.packCardFeatured {
+  border-color: var(--accent);
+  border-width: 3px;
+  position: relative;
+}
+
+.packCardFeatured::before {
+  content: '⭐ RECOMMENDED';
+  position: absolute;
+  top: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: white;
+  padding: 0.375rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.packHeader {
+  margin-bottom: 1.5rem;
+}
+
+.packBadge {
+  display: inline-block;
+  background: var(--muted);
+  color: var(--primary);
+  padding: 0.375rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.packTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.packGuests {
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+.packContents {
+  flex: 1;
+  margin-bottom: 1.5rem;
+}
+
+.contentsTitle {
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+
+.contentsList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+}
+
+.contentsList li {
+  padding: 0.5rem 0;
+  color: #6b7280;
+  display: flex;
+  align-items: start;
+}
+
+.contentsList li::before {
+  content: '✓';
+  color: var(--accent);
+  font-weight: bold;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+}
+
+.packTotal {
+  font-weight: 700;
+  color: var(--primary);
+  background: var(--muted);
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+.packPricing {
+  border-top: 2px solid #e5e7eb;
+  padding-top: 1.5rem;
+}
+
+.packPrice {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.priceLabel {
+  display: block;
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 0.25rem;
+}
+
+.priceAmount {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.packButton {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background: var(--primary);
+  color: white;
+  text-align: center;
+  border-radius: 0.75rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.packButton:hover {
+  background: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.customNote {
+  margin-top: 3rem;
+  text-align: center;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 2px dashed var(--accent);
+}
+
+.customNote p {
+  font-size: 1.125rem;
+  color: #6b4423;
+  margin: 0;
+}
+
+/* Events Section */
+.eventsSection {
+  padding: 5rem 0;
+  background: white;
+}
+
+.eventsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.eventCard {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: var(--muted);
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+.eventCard:hover {
+  background: white;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+
+.eventEmoji {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.eventTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.eventText {
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* How to Order Section */
+.howToOrder {
+  padding: 5rem 0;
+  background: #f9fafb;
+}
+
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.orderStep {
+  text-align: center;
+  padding: 2rem;
+  background: white;
+  border-radius: 1rem;
+  border: 2px solid #e5e7eb;
+}
+
+.stepNumber {
+  width: 60px;
+  height: 60px;
+  background: var(--accent);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin: 0 auto 1.5rem;
+}
+
+.stepTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.75rem;
+}
+
+.stepText {
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* FAQ Section */
+.faqSection {
+  padding: 5rem 0;
+  background: white;
+}
+
+.faqList {
+  margin-top: 3rem;
+}
+
+.faqItem {
+  background: var(--muted);
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid var(--accent);
+}
+
+.faqQuestion {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.faqAnswer {
+  color: #6b7280;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* CTA Section */
+.cta {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, #6b4423 0%, #8b5a2b 100%);
+  text-align: center;
+}
+
+.ctaContent {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.ctaText {
+  font-size: 1.25rem;
+  color: #fde68a;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ctaButtonPrimary,
+.ctaButtonSecondary {
+  padding: 1rem 2rem;
+  border-radius: 0.75rem;
+  font-weight: 700;
+  font-size: 1.125rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ctaButtonPrimary {
+  background: var(--accent);
+  color: white;
+}
+
+.ctaButtonPrimary:hover {
+  background: #d97706;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.ctaButtonSecondary {
+  background: white;
+  color: var(--primary);
+}
+
+.ctaButtonSecondary:hover {
+  background: var(--muted);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .packsGrid,
+  .eventsGrid,
+  .stepsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+  }
+}

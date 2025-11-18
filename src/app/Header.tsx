@@ -27,6 +27,10 @@ export default function Header() {
             <nav className={styles.desktopNav}>
               <Link href="/treats" className={styles.navLink}>Shop</Link>
               <Link href="/spanakopita" className={styles.navLink}>Spanakopita</Link>
+              <Link href="/party-orders" className={styles.partyLink}>
+                <span className={styles.partyIcon}>🎉</span>
+                Party Orders
+              </Link>
               <a href="#contact" className={styles.navLink}>Contact</a>
               <button 
                 onClick={() => setCartOpen(true)}
@@ -73,12 +77,17 @@ export default function Header() {
             <Link href="/spanakopita" className={styles.mobileNavLink} onClick={closeMenu}>
               Spanakopita
             </Link>
+            <Link href="/party-orders" className={styles.mobilePartyLink} onClick={closeMenu}>
+              <span className={styles.partyIcon}>🎉</span>
+              Party Orders
+            </Link>
             <a href="#contact" className={styles.mobileNavLink} onClick={closeMenu}>
               Contact
             </a>
           </div>
         )}
       </header>
+
       {cartOpen && (
         <Suspense fallback={null}>
           <CartDrawer isOpen={cartOpen} onClose={() => setCartOpen(false)} />

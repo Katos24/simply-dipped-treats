@@ -194,8 +194,8 @@
 }
 
 .fulfillmentOptions {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 0.75rem;
 }
 
@@ -210,15 +210,20 @@
   cursor: pointer;
 }
 
+
 .fulfillmentContent {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  justify-content: center;
+  text-align: center;
+  gap: 0.5rem;
   padding: 1rem;
   background: white;
   border: 2px solid var(--border);
   border-radius: 0.75rem;
   transition: all 0.2s;
+  height: 100%;
 }
 
 .fulfillmentLabel:hover .fulfillmentContent {
@@ -246,6 +251,7 @@
   font-size: 0.875rem;
   opacity: 0.8;
 }
+
 
 .totals {
   margin-bottom: 1rem;
@@ -327,4 +333,12 @@
 .clearButton:hover {
   background: var(--muted);
   color: var(--primary);
+}
+
+
+/* Mobile responsiveness - stack on very small screens */
+@media (max-width: 400px) {
+  .fulfillmentOptions {
+    grid-template-columns: 1fr;
+  }
 }

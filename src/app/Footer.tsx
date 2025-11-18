@@ -12,7 +12,7 @@ export default function Footer() {
 
           <div className={styles.footerSection}>
             <h3>Contact</h3>
-            <a href="mailto:orders@simplydipped.com">orders@simplydipped.com</a>
+            <a href="mailto:simplydipped24@gmail.com">simplydipped24@gmail.com</a>
             <a href="tel:5551234567">(555) 123-4567</a>
             <p>Holbrook, NY 11741</p>
           </div>

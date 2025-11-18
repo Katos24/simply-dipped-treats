@@ -20,7 +20,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
   const handleCheckout = async () => {
     // Validate fulfillment selection
     if (!fulfillmentType) {
-      toast.error('Please select pickup or delivery', {
+      toast.error('Please select pickup or delivery above', {
         description: 'Choose how you want to receive your order',
         duration: 3000,
       });
@@ -113,40 +113,36 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                   <h3 className={styles.fulfillmentTitle}>
                     How would you like to receive your order? <span className={styles.required}>*</span>
                   </h3>
-                  <div className={styles.fulfillmentOptions}>
-                    <label className={`${styles.fulfillmentLabel} ${fulfillmentType === 'pickup' ? styles.selected : ''}`}>
-                      <input
-                        type="radio"
-                        name="fulfillment"
-                        value="pickup"
-                        checked={fulfillmentType === 'pickup'}
-                        onChange={() => setFulfillmentType('pickup')}
-                      />
-                      <div className={styles.fulfillmentContent}>
-                        <span className={styles.fulfillmentIcon}>📦</span>
-                        <div>
-                          <div className={styles.fulfillmentName}>Pickup</div>
-                          <div className={styles.fulfillmentDesc}>Free</div>
-                        </div>
-                      </div>
-                    </label>
-                    <label className={`${styles.fulfillmentLabel} ${fulfillmentType === 'delivery' ? styles.selected : ''}`}>
-                      <input
-                        type="radio"
-                        name="fulfillment"
-                        value="delivery"
-                        checked={fulfillmentType === 'delivery'}
-                        onChange={() => setFulfillmentType('delivery')}
-                      />
-                      <div className={styles.fulfillmentContent}>
-                        <span className={styles.fulfillmentIcon}>🚚</span>
-                        <div>
-                          <div className={styles.fulfillmentName}>Delivery</div>
-                          <div className={styles.fulfillmentDesc}>+$10</div>
-                        </div>
-                      </div>
-                    </label>
-                  </div>
+                 <div className={styles.fulfillmentOptions}>
+  <label className={`${styles.fulfillmentLabel} ${fulfillmentType === 'pickup' ? styles.selected : ''}`}>
+    <input
+      type="radio"
+      name="fulfillment"
+      value="pickup"
+      checked={fulfillmentType === 'pickup'}
+      onChange={() => setFulfillmentType('pickup')}
+    />
+    <div className={styles.fulfillmentContent}>
+      <span className={styles.fulfillmentIcon}>📦</span>
+      <div className={styles.fulfillmentName}>Pickup</div>
+      <div className={styles.fulfillmentDesc}>Free</div>
+    </div>
+  </label>
+  <label className={`${styles.fulfillmentLabel} ${fulfillmentType === 'delivery' ? styles.selected : ''}`}>
+    <input
+      type="radio"
+      name="fulfillment"
+      value="delivery"
+      checked={fulfillmentType === 'delivery'}
+      onChange={() => setFulfillmentType('delivery')}
+    />
+    <div className={styles.fulfillmentContent}>
+      <span className={styles.fulfillmentIcon}>🚚</span>
+      <div className={styles.fulfillmentName}>Delivery</div>
+      <div className={styles.fulfillmentDesc}>+$10</div>
+    </div>
+  </label>
+</div>
                 </div>
 
                 <div className={styles.totals}>
@@ -171,7 +167,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                   className={styles.checkoutButton}
                   disabled={!fulfillmentType}
                 >
-                  {fulfillmentType ? 'Proceed to Checkout' : 'Select Pickup or Delivery'}
+                  {fulfillmentType ? 'Proceed to Checkout' : 'Select Pickup or Delivery Above'}
                 </button>
                 <button onClick={clearCart} className={styles.clearButton}>
                   Clear Cart

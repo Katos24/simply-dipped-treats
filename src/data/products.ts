@@ -16,52 +16,143 @@ export interface Product {
 }
 
 export const products: Product[] = [
-  // Individual Brownie Bites
-  {
-    id: 'brownie-pumpkin',
-    name: 'Pumpkin Cheesecake',
-    category: 'brownie-individual',
-    description: 'Rich brownie with pumpkin cheesecake swirl',
-    image: '/images/treats/brownies/pumpkin.jpg',
-    variants: [
-      { size: 'Half Dozen (6)', price: 18 },
-      { size: 'Dozen (12)', price: 32 }
-    ]
-  },
-  {
-    id: 'brownie-reeses',
-    name: "Reese's PB Cup",
-    category: 'brownie-individual',
-    description: 'Chocolate brownie with peanut butter cup pieces',
-    image: '/images/treats/brownies/reeses.jpg',
-    variants: [
-      { size: 'Half Dozen (6)', price: 20 },
-      { size: 'Dozen (12)', price: 35 }
-    ]
-  },
-  {
-    id: 'brownie-cosmic',
-    name: 'Cosmic Brownie',
-    category: 'brownie-individual',
-    description: 'Pending - Hi Lauren',
-    image: '/images/treats/brownies/cosmic.jpg',
-    variants: [
-      { size: 'Half Dozen (6)', price: 20 },
-      { size: 'Dozen (12)', price: 35 }
-    ]
-  },
-  {
-    id: 'brownie-brookie',
-    name: 'Brookie',
-    category: 'brownie-individual',
-    description: 'Half brownie, half cookie - best of both worlds',
-    image: '/images/treats/brownies/brookie.jpg',
-    variants: [
-      { size: 'Half Dozen (6)', price: 20 },
-      { size: 'Dozen (12)', price: 35 }
-    ]
-  },
-
+// Individual Brownie Bites
+{
+  id: 'brownie-original',
+  name: 'Original',
+  category: 'brownie-individual',
+  description: 'Classic fudgy chocolate brownie - rich and decadent',
+  image: '/images/treats/brownies/original.jpg',
+  variants: [
+    { size: 'Half Dozen (6)', price: 18 },
+    { size: 'Dozen (12)', price: 32 }
+  ]
+},
+{
+  id: 'brownie-oreo',
+  name: 'Oreo',
+  category: 'brownie-individual',
+  description: 'Rich chocolate brownie loaded with Oreo cookie pieces',
+  image: '/images/treats/brownies/oreo.jpg',
+  variants: [
+    { size: 'Half Dozen (6)', price: 20 },
+    { size: 'Dozen (12)', price: 35 }
+  ]
+},
+{
+  id: 'brownie-mm',
+  name: 'M&M',
+  category: 'brownie-individual',
+  description: 'Chocolate brownie packed with colorful M&M candies',
+  image: '/images/treats/brownies/mm.jpg',
+  variants: [
+    { size: 'Half Dozen (6)', price: 20 },
+    { size: 'Dozen (12)', price: 35 }
+  ]
+},
+{
+  id: 'brownie-rainbow',
+  name: 'Rainbow Cookie',
+  category: 'brownie-individual',
+  description: 'Italian rainbow cookie inspired brownie with layers of almond flavor',
+  image: '/images/treats/brownies/rainbow.jpg',
+  variants: [
+    { size: 'Half Dozen (6)', price: 20 },
+    { size: 'Dozen (12)', price: 35 }
+  ]
+},
+{
+  id: 'brownie-smores',
+  name: "S'mores",
+  category: 'brownie-individual',
+  description: 'Chocolate brownie with graham cracker, marshmallow, and chocolate chips',
+  image: '/images/treats/brownies/smores.jpg',
+  variants: [
+    { size: 'Half Dozen (6)', price: 20 },
+    { size: 'Dozen (12)', price: 35 }
+  ]
+},
+{
+  id: 'brownie-dubai',
+  name: 'Dubai',
+  category: 'brownie-individual',
+  description: 'Luxurious brownie with pistachio and kadayif (shredded phyllo)',
+  image: '/images/treats/brownies/dubai.jpg',
+  variants: [
+    { size: 'Half Dozen (6)', price: 22 },
+    { size: 'Dozen (12)', price: 38 }
+  ]
+},
+{
+  id: 'brownie-cosmic',
+  name: 'Cosmic Brownie',
+  category: 'brownie-individual',
+  description: 'Fudgy brownie with chocolate ganache and rainbow candy-coated chips',
+  image: '/images/treats/brownies/cosmic.jpg',
+  variants: [
+    { size: 'Half Dozen (6)', price: 20 },
+    { size: 'Dozen (12)', price: 35 }
+  ]
+},
+{
+  id: 'brownie-red-velvet',
+  name: 'Red Velvet',
+  category: 'brownie-individual',
+  description: 'Rich red velvet brownie with cream cheese swirl',
+  image: '/images/treats/brownies/red-velvet.jpg',
+  variants: [
+    { size: 'Half Dozen (6)', price: 20 },
+    { size: 'Dozen (12)', price: 35 }
+  ]
+},
+{
+  id: 'brownie-caramel-turtle',
+  name: 'Caramel Turtle',
+  category: 'brownie-individual',
+  description: 'Chocolate brownie with caramel, pecans, and chocolate drizzle',
+  image: '/images/treats/brownies/caramel-turtle.jpg',
+  variants: [
+    { size: 'Half Dozen (6)', price: 20 },
+    { size: 'Dozen (12)', price: 35 }
+  ]
+},
+{
+  id: 'brownie-brookie',
+  name: 'Brookie',
+  category: 'brownie-individual',
+  description: 'Half brownie, half cookie - best of both worlds',
+  image: '/images/treats/brownies/brookie.jpg',
+  variants: [
+    { size: 'Half Dozen (6)', price: 20 },
+    { size: 'Dozen (12)', price: 35 }
+  ]
+},
+{
+  id: 'brownie-toffee-pretzel',
+  name: 'Toffee Pretzel',
+  category: 'brownie-individual',
+  description: 'Chocolate brownie with toffee bits and salty pretzel pieces',
+  image: '/images/treats/brownies/toffee-pretzel.jpg',
+  seasonal: true,
+  seasonalNote: 'Limited Time',
+  variants: [
+    { size: 'Half Dozen (6)', price: 20 },
+    { size: 'Dozen (12)', price: 35 }
+  ]
+},
+{
+  id: 'brownie-pumpkin',
+  name: 'Pumpkin Cheesecake',
+  category: 'brownie-individual',
+  description: 'Rich brownie with pumpkin cheesecake swirl',
+  image: '/images/treats/brownies/pumpkin.jpg',
+  seasonal: true,
+  seasonalNote: 'Fall Seasonal',
+  variants: [
+    { size: 'Half Dozen (6)', price: 20 },
+    { size: 'Dozen (12)', price: 35 }
+  ]
+},
   // Brownie Packs
   {
     id: 'brownie-winter-pack',

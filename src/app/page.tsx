@@ -110,6 +110,41 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Party Orders Section */}
+<section className={styles.partyOrders}>
+  <div className="container">
+    <div className={styles.partyContent}>
+      <div className={styles.partyText}>
+        <span className={styles.partyBadge}>🎉 Perfect for Events</span>
+        <h2 className={styles.partyTitle}>
+          Planning a Party or Event?
+        </h2>
+        <p className={styles.partyDescription}>
+          We specialize in custom orders for birthdays, baby showers, weddings, 
+          corporate events, and more! Our party packs and custom assortments 
+          make entertaining easy and delicious.
+        </p>
+        <ul className={styles.partyFeatures}>
+          <li>✓ Custom flavor combinations</li>
+          <li>✓ Bulk pricing available</li>
+          <li>✓ Perfect for 10-100+ guests</li>
+          <li>✓ Beautifully packaged & ready to serve</li>
+        </ul>
+        <Link href="/party-orders" className={styles.partyButton}>
+          Plan Your Party Order →
+        </Link>
+      </div>
+      <div className={styles.partyImage}>
+        <div className={styles.partyImageCard}>
+          <div className={styles.partyImagePlaceholder}>
+            🎊 Party Treats Display 🎊
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
       {/* How It Works */}
       <section className={styles.howItWorks}>
         <div className="container">
