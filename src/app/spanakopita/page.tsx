@@ -19,10 +19,12 @@ export default function SpanakopitaPage() {
 
       {/* Product */}
       <section className={styles.productSection}>
-        <div className="container max-w-4xl">
-          {spanakopitaProduct && <ProductCard product={spanakopitaProduct} />}
-        </div>
-      </section>
+  <div className="container">
+    <div className={styles.productWrapper}>
+      {spanakopitaProduct && <ProductCard product={spanakopitaProduct} />}
+    </div>
+  </div>
+</section>
 
       {/* Info */}
       <section className={styles.infoSection}>

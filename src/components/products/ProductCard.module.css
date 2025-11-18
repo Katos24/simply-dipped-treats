@@ -1,5 +1,7 @@
 .card {
   background: white;
+    position: relative; /* This is required for the badge positioning */
+
   border-radius: 1.25rem;
   overflow: hidden;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
@@ -245,4 +247,23 @@
     padding: 0.875rem;
     font-size: 0.938rem;
   }
+}
+
+
+/* Seasonal Badge */
+.seasonalBadge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
 }

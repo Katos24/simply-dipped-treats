@@ -11,6 +11,8 @@ export interface Product {
   image: string;
   variants: ProductVariant[];
   contents?: string[]; // For packs - what's included
+  seasonal?: boolean; // NEW: Mark seasonal items
+  seasonalNote?: string; // NEW: Optional message like "Available Nov-Dec"
 }
 
 export const products: Product[] = [
@@ -37,7 +39,7 @@ export const products: Product[] = [
       { size: 'Dozen (12)', price: 35 }
     ]
   },
-      {
+  {
     id: 'brownie-cosmic',
     name: 'Cosmic Brownie',
     category: 'brownie-individual',
@@ -48,7 +50,6 @@ export const products: Product[] = [
       { size: 'Dozen (12)', price: 35 }
     ]
   },
-
   {
     id: 'brownie-brookie',
     name: 'Brookie',
@@ -98,7 +99,7 @@ export const products: Product[] = [
   // Cake Pops
   {
     id: 'cakepop-vanilla',
-    name: 'Vanilla Dream',
+    name: 'Vanilla Blondie',
     category: 'cakepop-individual',
     description: 'Moist vanilla cake pop with chocolate coating',
     image: '/images/treats/cakepops/vanilla.jpg',
@@ -107,17 +108,140 @@ export const products: Product[] = [
       { size: 'Dozen (12)', price: 35 }
     ]
   },
-
-  // Rice Krispies
   {
-    id: 'ricekrispie-classic',
-    name: 'Classic Chocolate',
+    id: 'cakepop-funfetti',
+    name: 'Funfetti Blondie',
+    category: 'cakepop-individual',
+    description: 'Moist vanilla cake pop with chocolate coating',
+    image: '/images/treats/cakepops/funfetti.png',
+    variants: [
+      { size: 'Half Dozen (6)', price: 20 },
+      { size: 'Dozen (12)', price: 35 }
+    ]
+  },
+  {
+    id: 'cakepop-chocolate',
+    name: 'Chocolate Cake Pop',
+    category: 'cakepop-individual',
+    description: 'Moist vanilla cake pop with chocolate coating',
+    image: '/images/treats/cakepops/chocolate.jpg',
+    variants: [
+      { size: 'Half Dozen (6)', price: 20 },
+      { size: 'Dozen (12)', price: 35 }
+    ]
+  },
+  {
+    id: 'cakepop-turkey',
+    name: 'Turkey Cake Pop',
+    category: 'cakepop-individual',
+    description: 'Moist vanilla cake pop with chocolate coating',
+    image: '/images/treats/cakepops/turkey.png',
+    variants: [
+      { size: 'Half Dozen (6)', price: 20 },
+      { size: 'Dozen (12)', price: 35 }
+    ]
+  },
+  {
+    id: 'cakepop-grinch',
+    name: 'Grinch Cake Pop',
+    category: 'cakepop-individual',
+    description: 'Moist vanilla cake pop with chocolate coating',
+    seasonal: true,
+    seasonalNote: 'Available December only',
+    image: '/images/treats/cakepops/grinch.png',
+    variants: [
+      { size: 'Half Dozen (6)', price: 20 },
+      { size: 'Dozen (12)', price: 35 }
+    ]
+  },
+
+  // Rice Krispies Treats
+  {
+    id: 'ricekrispie-sprinkles',
+    name: 'Original with Sprinkles',
     category: 'ricekrispie-individual',
-    description: 'Traditional rice krispie treats dipped in chocolate',
-    image: '/images/treats/ricekrispies/classic.jpg',
+    description: 'Classic rice krispie treat dipped in chocolate and topped with colorful sprinkles',
+    image: '/images/treats/ricekrispies/sprinkles.png',
     variants: [
       { size: 'Half Dozen (6)', price: 15 },
       { size: 'Dozen (12)', price: 28 }
+    ]
+  },
+  {
+    id: 'ricekrispie-strawberry',
+    name: 'Strawberry Shortcake',
+    category: 'ricekrispie-individual',
+    description: 'Sweet strawberry-flavored treat with white chocolate and cake crumbles',
+    image: '/images/treats/ricekrispies/strawberry.png',
+    variants: [
+      { size: 'Half Dozen (6)', price: 15 },
+      { size: 'Dozen (12)', price: 28 }
+    ]
+  },
+  {
+    id: 'ricekrispie-cookies-cream',
+    name: 'Cookies & Cream',
+    category: 'ricekrispie-individual',
+    description: 'Vanilla treat dipped in white chocolate with crushed Oreo cookies',
+    image: '/images/treats/ricekrispies/cookies-cream.png',
+    variants: [
+      { size: 'Half Dozen (6)', price: 15 },
+      { size: 'Dozen (12)', price: 28 }
+    ]
+  },
+  {
+    id: 'ricekrispie-caramel-apple',
+    name: 'Caramel Apple Pie',
+    category: 'ricekrispie-individual',
+    description: 'Apple cinnamon treat with caramel drizzle and graham cracker crumbs',
+    image: '/images/treats/ricekrispies/caramel-apple.png',
+    variants: [
+      { size: 'Half Dozen (6)', price: 15 },
+      { size: 'Dozen (12)', price: 28 }
+    ]
+  },
+  {
+    id: 'ricekrispie-banana-cream',
+    name: 'Banana Cream Pie',
+    category: 'ricekrispie-individual',
+    description: 'Banana-flavored treat with white chocolate and vanilla wafer crumbs',
+    image: '/images/treats/ricekrispies/banana-cream.png',
+    variants: [
+      { size: 'Half Dozen (6)', price: 15 },
+      { size: 'Dozen (12)', price: 28 }
+    ]
+  },
+  {
+    id: 'ricekrispie-birthday',
+    name: 'Birthday Cake',
+    category: 'ricekrispie-individual',
+    description: 'Funfetti-style treat with white chocolate and rainbow sprinkles',
+    image: '/images/treats/ricekrispies/birthday.png',
+    variants: [
+      { size: 'Half Dozen (6)', price: 15 },
+      { size: 'Dozen (12)', price: 28 }
+    ]
+  },
+  {
+    id: 'ricekrispie-sugar-cookie',
+    name: 'Sugar Cookie',
+    category: 'ricekrispie-individual',
+    description: 'Vanilla treat with white chocolate and sugar cookie crumbles',
+    image: '/images/treats/ricekrispies/sugar-cookie.png',
+    variants: [
+      { size: 'Half Dozen (6)', price: 15 },
+      { size: 'Dozen (12)', price: 28 }
+    ]
+  },
+  {
+    id: 'ricekrispie-mini-sprinkles',
+    name: 'Mini with Sprinkles',
+    category: 'ricekrispie-individual',
+    description: 'Bite-sized rice krispie treats dipped in chocolate with colorful sprinkles',
+    image: '/images/treats/ricekrispies/mini-sprinkles.png',
+    variants: [
+      { size: 'Half Dozen (6)', price: 12 },
+      { size: 'Dozen (12)', price: 22 }
     ]
   },
 

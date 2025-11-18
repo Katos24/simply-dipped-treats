@@ -20,9 +20,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
 
   const handleAddToCart = () => {
     addToCart(product, selectedVariant);
-    
     setIsAdded(true);
-    
     toast.success('Added to cart!', {
       description: `${product.name} - ${product.variants[selectedVariant].size}`,
       duration: 2000,
@@ -35,6 +33,13 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
 
   return (
     <div className={styles.card}>
+      {/* Seasonal Badge */}
+      {product.seasonal && (
+        <div className={styles.seasonalBadge}>
+          ❄️ {product.seasonalNote || 'Seasonal'}
+        </div>
+      )}
+
       <div className={styles.imageContainer}>
         {!imageError ? (
           <Image
@@ -54,11 +59,11 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
           </div>
         )}
       </div>
-      
+
       <div className={styles.content}>
         <h3 className={styles.title}>{product.name}</h3>
         <p className={styles.description}>{product.description}</p>
-        
+
         {product.contents && (
           <div className={styles.packContents}>
             <h4 className={styles.contentsTitle}>What&apos;s Included:</h4>

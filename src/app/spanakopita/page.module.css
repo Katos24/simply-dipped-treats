@@ -184,3 +184,9 @@
 .productSection {
   padding: 3rem 0;
 }
+
+
+.productWrapper {
+  max-width: 500px;
+  margin: 0 auto;
+}

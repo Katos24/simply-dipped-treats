@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image'; // Next.js optimized image component
 import styles from './page.module.css';
 
 const categories = [
@@ -6,25 +7,25 @@ const categories = [
     name: 'Brownie Bites',
     description: 'Rich, fudgy brownie bites in various flavors',
     href: '/treats/brownie-bites',
-    emoji: '🍫'
+    image: '/images/treats/brownies/cosmic.jpg',
   },
   {
     name: 'Cake Pops',
     description: 'Moist cake pops coated in smooth chocolate',
     href: '/treats/cake-pops',
-    emoji: '🍭'
+    image: '/images/treats/cakepops/GrinchCakePop.png'
   },
   {
     name: 'Rice Krispies',
     description: 'Classic rice krispie treats with a twist',
     href: '/treats/rice-krispies',
-    emoji: '🍚'
+    image: '/images/rice-krispies.jpg'
   },
   {
     name: 'Spanakopita',
     description: 'Authentic Greek spinach & feta pastries',
     href: '/spanakopita',
-    emoji: '🥟'
+    image: '/images/spanakopita.jpg'
   }
 ];
 
@@ -43,7 +44,15 @@ export default function TreatsPage() {
           <div className={styles.grid}>
             {categories.map((category) => (
               <Link key={category.href} href={category.href} className={styles.categoryCard}>
-                <div className={styles.emoji}>{category.emoji}</div>
+                <div className={styles.imageWrapper}>
+                  <Image 
+                    src={category.image} 
+                    alt={category.name} 
+                    width={200} 
+                    height={200} 
+                    className={styles.categoryImage}
+                  />
+                </div>
                 <h2 className={styles.categoryName}>{category.name}</h2>
                 <p className={styles.categoryDescription}>{category.description}</p>
                 <span className={styles.arrow}>→</span>

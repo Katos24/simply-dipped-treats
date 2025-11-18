@@ -20,7 +20,6 @@ export default function Header() {
         <div className="container mx-auto px-4 py-4">
           <div className={styles.headerContent}>
             <Link href="/" className={styles.logo} onClick={closeMenu}>
-              <span className={styles.logoIcon}>🍫</span>
               <span className={styles.logoText}>Simply Dipped</span>
             </Link>
 

@@ -27,8 +27,8 @@ export default function Footer() {
           <div className={styles.footerSection}>
             <h3>Follow Us</h3>
             <div className={styles.socialLinks}>
-              <a href="#" className={styles.socialLink} aria-label="Instagram">📷</a>
-              <a href="#" className={styles.socialLink} aria-label="Facebook">👍</a>
+              <a href="https://www.instagram.com/simply_dippedtreats/" className={styles.socialLink} aria-label="Instagram">📷</a>
+              <a href="https://www.facebook.com/profile.php?id=61580365975274" className={styles.socialLink} aria-label="Facebook">👍</a>
               <a href="#" className={styles.socialLink} aria-label="Email">📧</a>
             </div>
           </div>
