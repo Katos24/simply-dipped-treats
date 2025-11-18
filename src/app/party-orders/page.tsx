@@ -211,7 +211,7 @@ export default function PartyOrdersPage() {
               <div className={styles.stepNumber}>2</div>
               <h3 className={styles.stepTitle}>Get Your Quote</h3>
               <p className={styles.stepText}>
-                We'll provide a custom quote based on your needs, typically within 24 hours
+                We&apos;ll provide a custom quote based on your needs, typically within 24 hours
               </p>
             </div>
             <div className={styles.orderStep}>
@@ -258,13 +258,13 @@ export default function PartyOrdersPage() {
             <div className={styles.faqItem}>
               <h3 className={styles.faqQuestion}>Can I customize the flavors?</h3>
               <p className={styles.faqAnswer}>
-                Absolutely! You can mix and match any of our available flavors. We'll work with 
+                Absolutely! You can mix and match any of our available flavors. We&apos;ll work with 
                 you to create the perfect assortment for your event.
               </p>
             </div>
 
             <div className={styles.faqItem}>
-              <h3 className={styles.faqQuestion}>What's your cancellation policy?</h3>
+              <h3 className={styles.faqQuestion}>What&apos;s your cancellation policy?</h3>
               <p className={styles.faqAnswer}>
                 We require 1 week notice for cancellations to receive a full refund of your deposit. 
                 Cancellations within 1 week of the event will forfeit the 50% deposit.
@@ -289,7 +289,7 @@ export default function PartyOrdersPage() {
           <div className={styles.ctaContent}>
             <h2 className={styles.ctaTitle}>Ready to Plan Your Party Order?</h2>
             <p className={styles.ctaText}>
-              Contact us today for a personalized quote and let's make your event delicious!
+              Contact us today for a personalized quote and let&apos;s make your event delicious!
             </p>
             <div className={styles.ctaButtons}>
               <a href="mailto:simplydipped24@gmail.com" className={styles.ctaButtonPrimary}>
